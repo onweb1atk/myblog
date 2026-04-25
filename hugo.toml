@@ -1,0 +1,28 @@
+baseURL = 'https://example.org/'
+title = 'My Blog'
+theme = 'PaperMod'
+languageCode = 'zh-cn'
+
+[params]
+    defaultTheme = "auto"
+    showReadingTime = true
+    displayFullContent = false
+    ShowShareButtons = true
+    ShowCodeCopyButtons = true
+
+[menu]
+    [[menu.main]]
+        identifier = "posts"
+        name = "文章"
+        url = "/posts"
+        weight = 10
+    [[menu.main]]
+        identifier = "tags"
+        name = "标签"
+        url = "/tags"
+        weight = 20
+    [[menu.main]]
+        identifier = "archives"
+        name = "归档"
+        url = "/archives"
+        weight = 30
