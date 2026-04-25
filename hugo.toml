@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://onweb1atk.github.io/myblog/'
 title = 'My Blog'
 theme = 'PaperMod'
 languageCode = 'zh-cn'
