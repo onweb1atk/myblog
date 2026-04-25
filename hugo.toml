@@ -1,5 +1,5 @@
 baseURL = 'https://onweb1atk.github.io/myblog/'
-title = 'My Blog'
+title = "1atk's personal blog"
 theme = 'PaperMod'
 languageCode = 'zh-cn'
 
