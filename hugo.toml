@@ -21,13 +21,13 @@ languageCode = 'zh-cn'
         imageHeight = 120
         
         [[params.profileMode.buttons]]
-            name = "📚 全部文章"
+            name = "全部文章"
             url = "posts"
         [[params.profileMode.buttons]]
-            name = "🏷️ 标签分类"
+            name = "标签分类"
             url = "tags"
         [[params.profileMode.buttons]]
-            name = "⌛ 时间轴"
+            name = "时间轴"
             url = "archives"
 
     # 社交图标配置
