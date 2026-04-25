@@ -9,6 +9,24 @@ languageCode = 'zh-cn'
     displayFullContent = false
     ShowShareButtons = true
     ShowCodeCopyButtons = true
+    
+    # Profile Mode Configuration
+    [params.profileMode]
+        enabled = true
+        title = "1atk's personal blog"
+        subtitle = "学点什么，想点什么，写点什么。"
+        imageUrl = "profile.jpg"
+        imageTitle = "1atk"
+        imageWidth = 120
+        imageHeight = 120
+        
+        [[params.profileMode.buttons]]
+            name = "文章"
+            url = "posts"
+        
+        [[params.profileMode.socialIcons]]
+            name = "email"
+            url = "mailto:congwithsilent@gmail.com"
 
 [menu]
     [[menu.main]]
