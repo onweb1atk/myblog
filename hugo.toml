@@ -14,7 +14,7 @@ languageCode = 'zh-cn'
     [params.profileMode]
         enabled = true
         title = "1atk's personal blog"
-        subtitle = "学点什么，想点什么，写点什么。<br/>在互联网的角落，记录一些不被算法定义的思考。"
+        subtitle = "学点什么，想点什么，写点什么。<br/>在互联网的角落，记录一些不被算法定义的思考。<br/><br/>📬 联系我：congwithsilent@gmail.com"
         imageUrl = "profile.jpg"
         imageTitle = "1atk"
         imageWidth = 120
@@ -30,10 +30,7 @@ languageCode = 'zh-cn'
             name = "⌛ 时间轴"
             url = "archives"
 
-    # 社交图标配置 (移动到 params 根目录下)
-    [[params.socialIcons]]
-        name = "email"
-        url = "mailto:congwithsilent@gmail.com"
+    # 社交图标配置
     [[params.socialIcons]]
         name = "github"
         url = "https://github.com/onweb1atk"
