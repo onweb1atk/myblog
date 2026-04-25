@@ -10,23 +10,33 @@ languageCode = 'zh-cn'
     ShowShareButtons = true
     ShowCodeCopyButtons = true
     
-    # Profile Mode Configuration
+    # 首页 Profile Mode 配置
     [params.profileMode]
         enabled = true
         title = "1atk's personal blog"
-        subtitle = "学点什么，想点什么，写点什么。"
+        subtitle = "学点什么，想点什么，写点什么。<br/>在互联网的角落，记录一些不被算法定义的思考。"
         imageUrl = "profile.jpg"
         imageTitle = "1atk"
         imageWidth = 120
         imageHeight = 120
         
         [[params.profileMode.buttons]]
-            name = "文章"
+            name = "📚 全部文章"
             url = "posts"
-        
-        [[params.profileMode.socialIcons]]
-            name = "email"
-            url = "mailto:congwithsilent@gmail.com"
+        [[params.profileMode.buttons]]
+            name = "🏷️ 标签分类"
+            url = "tags"
+        [[params.profileMode.buttons]]
+            name = "⌛ 时间轴"
+            url = "archives"
+
+    # 社交图标配置 (移动到 params 根目录下)
+    [[params.socialIcons]]
+        name = "email"
+        url = "mailto:congwithsilent@gmail.com"
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/onweb1atk"
 
 [menu]
     [[menu.main]]
@@ -44,3 +54,12 @@ languageCode = 'zh-cn'
         name = "归档"
         url = "/archives"
         weight = 30
+    [[menu.main]]
+        identifier = "search"
+        name = "搜索"
+        url = "/search"
+        weight = 40
+
+# 开启搜索索引
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
