@@ -14,7 +14,7 @@ languageCode = 'zh-cn'
     [params.profileMode]
         enabled = true
         title = "1atk's personal blog"
-        subtitle = "学点什么，想点什么，写点什么。<br/>在互联网的角落，记录一些不被算法定义的思考。<br/><br/>📬 联系我：congwithsilent@gmail.com"
+        subtitle = "学点什么，想点什么，写点什么。\n\n在互联网的角落，记录一些不被算法定义的思考。\n\ncongwithsilent@gmail.com"
         imageUrl = "profile.jpg"
         imageTitle = "1atk"
         imageWidth = 120
