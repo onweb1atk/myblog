@@ -1,5 +1,6 @@
 {{ define "main" }}
-    {{- $paginator := partial "helper/paginator.html" . -}}
+    {{- $pages := where site.RegularPages "Section" "in" site.Params.mainSections -}}
+    {{- $recentPages := first 2 $pages -}}
 
     <section class="home-intro">
         <div class="home-intro__content">
@@ -8,29 +9,51 @@
             <p class="home-intro__lead">这里主要写技术折腾、生活观察和一些慢一点的思考。它不追求高频更新，只追求留下来的内容仍然值得回看。</p>
         </div>
         <div class="home-intro__actions">
-            <a class="home-intro__link" href="{{ "about/" | relURL }}">先看关于</a>
-            <a class="home-intro__link home-intro__link--subtle" href="{{ "posts/" | relURL }}">直接看文章</a>
+            <a class="home-intro__link" href="{{ "about/" | relURL }}">About</a>
         </div>
     </section>
 
-    <section class="home-section-heading">
-        <div>
-            <p class="home-section-heading__eyebrow">RECENT WRITING</p>
-            <h2 class="home-section-heading__title">最近文章</h2>
-        </div>
-        <a class="home-section-heading__link" href="{{ "archives/" | relURL }}">查看归档</a>
+    <section class="home-grid">
+        <article class="home-card home-card--recent">
+            <div class="home-card__header">
+                <p class="home-card__eyebrow">RECENT WRITING</p>
+                <h3 class="home-card__title">最近文章</h3>
+            </div>
+            <div class="home-recent-list">
+                {{ range $recentPages }}
+                    <a class="home-recent-item" href="{{ .RelPermalink }}">
+                        <div class="home-recent-item__meta">
+                            <span>{{ .Date.Format "2006.01.02" }}</span>
+                            {{ with index .Params.categories 0 }}
+                                <span>{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        <h4 class="home-recent-item__title">{{ .Title }}</h4>
+                        {{ with .Description }}
+                            <p class="home-recent-item__desc">{{ . }}</p>
+                        {{ end }}
+                    </a>
+                {{ end }}
+            </div>
+            <a class="home-card__link" href="{{ "posts/" | relURL }}">查看全部文章</a>
+        </article>
+
+        <article class="home-card home-card--search">
+            <div class="home-card__header">
+                <p class="home-card__eyebrow">LOOKUP</p>
+                <h3 class="home-card__title">搜索</h3>
+            </div>
+            <p class="home-card__body">如果你只是想快速找到某一篇文章、某个关键词，直接进搜索页会更快。</p>
+            <a class="home-card__link" href="{{ "search/" | relURL }}">打开搜索</a>
+        </article>
     </section>
 
-    <section class="article-list">
-        {{ range $index, $element := $paginator.Pages }}
-            {{ partial "article-list/default" . }}
-        {{ end }}
-    </section>
-
-    {{- partial "pagination.html" . -}}
     {{- partial "footer/footer" . -}}
 {{ end }}
 
 {{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
+
+{{ define "body-class" }}
+    home-page
 {{ end }}
