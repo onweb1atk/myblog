@@ -1,11 +1,35 @@
+/* 引入人文感字体 */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap');
+
 :root {
-    /* Day Mode Background */
+    /* 背景色保持之前设定的高级感 */
     --body-background: #f8f8f6;
     --card-background: #ffffff;
 
+    /* 字体族覆盖 */
+    --base-font-family: 'Lora', 'Noto Serif SC', serif;
+    --article-font-family: 'Lora', 'Noto Serif SC', serif;
+
     &[data-scheme="dark"] {
-        /* Night Mode Background */
         --body-background: #1f1f1e;
-        --card-background: #282827; /* Slightly lighter than background for cards */
+        --card-background: #282827;
     }
+}
+
+/* 细节排版优化 */
+.article-content {
+    font-size: 1.1rem;      /* 稍微调大字号 */
+    line-height: 1.85;      /* 增加行间距，适合长文阅读 */
+    letter-spacing: 0.02em; /* 增加一点点字间距 */
+    color: #2c2c2c;         /* 稍微加深文字颜色，增强对比度 */
+
+    &[data-scheme="dark"] {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* 标题加粗加重 */
+.article-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
