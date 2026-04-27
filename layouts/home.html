@@ -1,0 +1,36 @@
+{{ define "main" }}
+    {{- $paginator := partial "helper/paginator.html" . -}}
+
+    <section class="home-intro">
+        <div class="home-intro__content">
+            <p class="home-intro__eyebrow">PERSONAL LOG</p>
+            <h2 class="home-intro__title">把还没被平台格式化的想法，留在自己的站点里。</h2>
+            <p class="home-intro__lead">这里主要写技术折腾、生活观察和一些慢一点的思考。它不追求高频更新，只追求留下来的内容仍然值得回看。</p>
+        </div>
+        <div class="home-intro__actions">
+            <a class="home-intro__link" href="{{ "about/" | relURL }}">先看关于</a>
+            <a class="home-intro__link home-intro__link--subtle" href="{{ "posts/" | relURL }}">直接看文章</a>
+        </div>
+    </section>
+
+    <section class="home-section-heading">
+        <div>
+            <p class="home-section-heading__eyebrow">RECENT WRITING</p>
+            <h2 class="home-section-heading__title">最近文章</h2>
+        </div>
+        <a class="home-section-heading__link" href="{{ "archives/" | relURL }}">查看归档</a>
+    </section>
+
+    <section class="article-list">
+        {{ range $index, $element := $paginator.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

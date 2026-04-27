@@ -48,19 +48,26 @@ languageCode = "zh-cn"
         name = "首页"
         url = "/"
         weight = 10
-        pre = "home"
+    [[menu.main]]
+        identifier = "posts"
+        name = "文章"
+        url = "/posts"
+        weight = 20
+    [[menu.main]]
+        identifier = "about"
+        name = "关于"
+        url = "/about"
+        weight = 30
     [[menu.main]]
         identifier = "archives"
         name = "归档"
         url = "/archives"
-        weight = 20
-        pre = "archive"
+        weight = 40
     [[menu.main]]
         identifier = "search"
         name = "搜索"
         url = "/search"
-        weight = 30
-        pre = "search"
+        weight = 50
 
 [outputs]
     home = ["HTML", "RSS"]
