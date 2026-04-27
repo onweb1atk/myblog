@@ -2,13 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap');
 
 :root {
-    /* 保持你的纸张背景色 */
     --body-background: #f8f8f6;
     --card-background: #ffffff;
-
-    /* 仅应用字体族 */
     --base-font-family: 'Lora', 'Noto Serif SC', serif;
     --article-font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 16px; 
 
     &[data-scheme="dark"] {
         --body-background: #1f1f1e;
@@ -16,15 +14,46 @@
     }
 }
 
-/* 仅对文章正文进行极少量优化 */
+/* 正文优化 */
 .article-content {
-    font-size: 1.08rem;     /* 极轻微提升，确保在 90% 缩放下依然细腻 */
-    line-height: 1.75;      /* 适中的呼吸感 */
+    font-size: 1.08rem;
+    line-height: 1.75;
     color: #2c2c2c;
+    &[data-scheme="dark"] { color: rgba(255, 255, 255, 0.9); }
+}
 
-    &[data-scheme="dark"] {
-        color: rgba(255, 255, 255, 0.9);
+/* --- 目录左置核心代码 --- */
+
+/* 1. 在桌面端隐藏原有的右侧目录栏，或将其重置 */
+@media (min-width: 1280px) {
+    .main-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* 默认右侧目录容器 */
+    .right-sidebar {
+        display: none; /* 隐藏右侧占位 */
+    }
+
+    /* 强制将目录移动到左侧侧边栏下方 */
+    /* 注意：Stack 的目录 HTML 结构通常在 .widget.toc */
+    /* 这里的实现逻辑是：通过固定定位将其挂在左侧 */
+    .widget.toc {
+        position: fixed;
+        left: calc(50% - 640px); /* 这里的数值需要根据你的 container 宽度微调 */
+        top: 400px;             /* 位于侧边栏菜单下方 */
+        width: 250px;
+        max-height: calc(100vh - 450px);
+        overflow-y: auto;
+        padding-left: 20px;
+        border-left: 1px solid rgba(0,0,0,0.05);
+        font-family: var(--base-font-family);
+    }
+    
+    &[data-scheme="dark"] .widget.toc {
+        border-left: 1px solid rgba(255,255,255,0.05);
     }
 }
 
-/* 其他元素全部保持主题默认，不进行干扰 */
+/* 移动端保持原样（通常会自动折叠或隐藏） */

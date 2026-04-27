@@ -7,7 +7,7 @@ languageCode = "zh-cn"
     mainSections = ["posts"]
     sidebar = { avatar = "profile.jpg", title = "1atk", subtitle = "学点什么，想点什么，写点什么。\n\ncongwithsilent@gmail.com" }
     
-    # 社交链接 (Stack 风格)
+    # 社交链接
     [[params.social]]
         name = "GitHub"
         icon = "github"
@@ -20,7 +20,7 @@ languageCode = "zh-cn"
     # 文章页配置
     [params.article]
         math = false
-        toc = true
+        toc = true         # 开启目录
         readingTime = true
 
     # 颜色模式
