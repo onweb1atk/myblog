@@ -2,15 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap');
 
 :root {
+    /* 保持你的纸张背景色 */
     --body-background: #f8f8f6;
     --card-background: #ffffff;
 
-    /* 字体族覆盖 */
+    /* 仅应用字体族 */
     --base-font-family: 'Lora', 'Noto Serif SC', serif;
     --article-font-family: 'Lora', 'Noto Serif SC', serif;
-
-    /* 恢复标准根字号 */
-    font-size: 16px; 
 
     &[data-scheme="dark"] {
         --body-background: #1f1f1e;
@@ -18,34 +16,15 @@
     }
 }
 
-/* 细节排版优化 */
+/* 仅对文章正文进行极少量优化 */
 .article-content {
-    font-size: 1.15rem;     /* 精准定位在中值，平衡密度与清晰度 */
-    line-height: 1.8;       /* 稍微收紧行高 */
-    letter-spacing: 0.01em; 
+    font-size: 1.08rem;     /* 极轻微提升，确保在 90% 缩放下依然细腻 */
+    line-height: 1.75;      /* 适中的呼吸感 */
     color: #2c2c2c;
 
     &[data-scheme="dark"] {
         color: rgba(255, 255, 255, 0.9);
     }
-
-    /* 针对段落增加间距 */
-    p {
-        margin-bottom: 1.2em;
-    }
 }
 
-/* 文章标题适度缩小 */
-.article-title {
-    font-size: 1.8rem;      /* 恢复到稳重而不张扬的大小 */
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-/* 侧边栏字体恢复 */
-.sidebar {
-    font-family: var(--base-font-family);
-    .subtitle {
-        font-size: 1rem;
-    }
-}
+/* 其他元素全部保持主题默认，不进行干扰 */
