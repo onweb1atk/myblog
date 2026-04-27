@@ -7,6 +7,16 @@ languageCode = "zh-cn"
     mainSections = ["posts"]
     sidebar = { avatar = "profile.jpg", title = "1atk", subtitle = "学点什么，想点什么，写点什么。\n\ncongwithsilent@gmail.com" }
     
+    # 侧边栏小工具配置
+    [params.widgets]
+        page = [
+            { type = "toc" } # 开启目录小工具
+        ]
+        homepage = [
+            { type = "search" },
+            { type = "archives" }
+        ]
+
     # 社交链接
     [[params.social]]
         name = "GitHub"
@@ -20,7 +30,7 @@ languageCode = "zh-cn"
     # 文章页配置
     [params.article]
         math = false
-        toc = true         # 开启目录
+        toc = true
         readingTime = true
 
     # 颜色模式
