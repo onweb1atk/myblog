@@ -1,46 +1,38 @@
 baseURL = 'https://onweb1atk.github.io/myblog/'
 title = "1atk's personal blog"
-theme = 'PaperMod'
-languageCode = 'zh-cn'
+theme = "blowfish"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
 
 [params]
-    defaultTheme = "auto"
-    showReadingTime = true
-    showWordCount = true
-    ShowBreadCrumbs = true
-    ShowShareButtons = true
-    ShowCodeCopyButtons = true
+    colorScheme = "blowfish" # 默认配色方案
+    defaultAppearance = "auto" # 自动跟随系统暗色
+    autoSwitchAppearance = true # 允许用户手动切换
     
-    # 首页 Profile Mode 配置
-    [params.profileMode]
-        enabled = true
-        title = "1atk's personal blog"
-        subtitle = "学点什么，想点什么，写点什么。\n\n在互联网的角落，记录一些不被算法定义的思考。\n\ncongwithsilent@gmail.com"
-        imageUrl = "profile.jpg"
-        imageTitle = "1atk"
-        imageWidth = 120
-        imageHeight = 120
+    # 首页配置
+    [params.homepage]
+        showRecent = true # 在首页显示最近文章
+        showRecentItems = 3 # 显示 3 篇
+        layout = "background" # 现代感背景布局
+        homepageImage = "profile.jpg" # 背景图
         
-        [[params.profileMode.buttons]]
-            name = "全部文章"
-            url = "posts"
-        [[params.profileMode.buttons]]
-            name = "标签分类"
-            url = "tags"
-        [[params.profileMode.buttons]]
-            name = "时间轴"
-            url = "archives"
+    # 个人资料
+    [params.author]
+        name = "1atk"
+        image = "profile.jpg"
+        headline = "学点什么，想点什么，写点什么。"
+        bio = "在互联网的角落，记录一些不被算法定义的思考。\n\ncongwithsilent@gmail.com"
+        links = [
+            { email = "mailto:congwithsilent@gmail.com" },
+            { github = "https://github.com/onweb1atk" }
+        ]
 
-    # 文章页目录 (Table of Contents) 全局配置
-    [params.toc]
-        enable = true
-        autoCollapse = false # 是否自动折叠
-        ordered = true       # 是否显示数字序号
-
-    # 社交图标配置
-    [[params.socialIcons]]
-        name = "github"
-        url = "https://github.com/onweb1atk"
+    # 文章页配置
+    [params.article]
+        showTableOfContents = true
+        showReadingTime = true
+        showWordCount = true
+        showTaxonomies = true # 显示标签和分类
 
 [menu]
     [[menu.main]]
@@ -58,12 +50,6 @@ languageCode = 'zh-cn'
         name = "归档"
         url = "/archives"
         weight = 30
-    [[menu.main]]
-        identifier = "search"
-        name = "搜索"
-        url = "/search"
-        weight = 40
 
-# 开启搜索索引
 [outputs]
     home = ["HTML", "RSS", "JSON"]
