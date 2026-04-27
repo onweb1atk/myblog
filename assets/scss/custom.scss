@@ -1,0 +1,11 @@
+:root {
+    /* Day Mode Background */
+    --body-background: #f8f8f6;
+    --card-background: #ffffff;
+
+    &[data-scheme="dark"] {
+        /* Night Mode Background */
+        --body-background: #1f1f1e;
+        --card-background: #282827; /* Slightly lighter than background for cards */
+    }
+}
