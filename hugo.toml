@@ -6,7 +6,8 @@ languageCode = 'zh-cn'
 [params]
     defaultTheme = "auto"
     showReadingTime = true
-    displayFullContent = false
+    showWordCount = true
+    ShowBreadCrumbs = true
     ShowShareButtons = true
     ShowCodeCopyButtons = true
     
@@ -29,6 +30,12 @@ languageCode = 'zh-cn'
         [[params.profileMode.buttons]]
             name = "时间轴"
             url = "archives"
+
+    # 文章页目录 (Table of Contents) 全局配置
+    [params.toc]
+        enable = true
+        autoCollapse = false # 是否自动折叠
+        ordered = true       # 是否显示数字序号
 
     # 社交图标配置
     [[params.socialIcons]]
