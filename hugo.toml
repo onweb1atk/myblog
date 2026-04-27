@@ -38,6 +38,10 @@ languageCode = "zh-cn"
         toggle = true
         default = "auto"
 
+    # 暂未配置评论服务，避免文章页出现空评论卡片
+    [params.comments]
+        enabled = false
+
 [menu]
     [[menu.main]]
         identifier = "home"
@@ -59,4 +63,4 @@ languageCode = "zh-cn"
         pre = "search"
 
 [outputs]
-    home = ["HTML", "RSS", "JSON"]
+    home = ["HTML", "RSS"]
