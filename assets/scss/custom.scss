@@ -7,11 +7,12 @@
     --base-font-family: 'Lora', 'Noto Serif SC', serif;
     --article-font-family: 'Lora', 'Noto Serif SC', serif;
     font-size: 16px; 
+}
 
-    &[data-scheme="dark"] {
-        --body-background: #1f1f1e;
-        --card-background: #282827;
-    }
+/* 暗色模式背景 */
+:root[data-scheme="dark"] {
+    --body-background: #1f1f1e;
+    --card-background: #282827;
 }
 
 /* 正文优化 */
@@ -19,7 +20,10 @@
     font-size: 1.08rem;
     line-height: 1.75;
     color: #2c2c2c;
-    &[data-scheme="dark"] { color: rgba(255, 255, 255, 0.9); }
+}
+
+:root[data-scheme="dark"] .article-content {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* --- 目录迁移至左侧侧边栏方案 --- */
@@ -30,13 +34,12 @@
         display: none !important;
     }
 
-    /* 2. 这里的策略是将 ToC 作为一个固定元素挂在左侧 */
-    /* 由于 Stack 的 HTML 结构中，ToC 也是在右侧生成的，我们依然需要用到 fixed 定位 */
+    /* 2. 将 ToC 作为一个固定元素挂在左侧 */
     .widget--toc {
         display: block !important;
         position: fixed;
-        left: 20px;            /* 靠近屏幕左侧 */
-        bottom: 50px;          /* 放在左下角 */
+        left: 20px;
+        bottom: 50px;
         width: 250px;
         z-index: 100;
         background: transparent;
@@ -44,17 +47,17 @@
         max-height: 40vh;
         overflow-y: auto;
         
-        /* 样式微调，使其更像侧边栏的一部分 */
         font-family: var(--base-font-family);
         font-size: 0.9rem;
         border-left: 2px solid rgba(0,0,0,0.05);
     }
 
-    &[data-scheme="dark"] .widget--toc {
+    /* 暗色模式下的目录边框 */
+    :root[data-scheme="dark"] .widget--toc {
         border-left: 2px solid rgba(255,255,255,0.1);
     }
 
-    /* 隐藏目录的标题（可选，为了更简约） */
+    /* 隐藏目录的标题 */
     .widget--toc .widget-title {
         font-size: 0.8rem;
         text-transform: uppercase;
@@ -67,6 +70,6 @@
 /* 适配中等屏幕，防止重叠 */
 @media (min-width: 1024px) and (max-width: 1366px) {
     .widget--toc {
-        display: none !important; /* 在屏幕不够宽时隐藏，防止遮挡正文 */
+        display: none !important;
     }
 }
