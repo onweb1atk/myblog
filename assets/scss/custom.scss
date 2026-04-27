@@ -2,13 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap');
 
 :root {
-    /* 背景色保持之前设定的高级感 */
     --body-background: #f8f8f6;
     --card-background: #ffffff;
 
     /* 字体族覆盖 */
     --base-font-family: 'Lora', 'Noto Serif SC', serif;
     --article-font-family: 'Lora', 'Noto Serif SC', serif;
+
+    /* 调大根字号，让全站文字更饱满 */
+    font-size: 17px; 
 
     &[data-scheme="dark"] {
         --body-background: #1f1f1e;
@@ -18,18 +20,32 @@
 
 /* 细节排版优化 */
 .article-content {
-    font-size: 1.1rem;      /* 稍微调大字号 */
-    line-height: 1.85;      /* 增加行间距，适合长文阅读 */
-    letter-spacing: 0.02em; /* 增加一点点字间距 */
-    color: #2c2c2c;         /* 稍微加深文字颜色，增强对比度 */
+    font-size: 1.25rem;     /* 显著调大字号，确保易读性 */
+    line-height: 1.9;       /* 稍微增加行间距以匹配大字号 */
+    letter-spacing: 0.01em; 
+    color: #2c2c2c;
 
     &[data-scheme="dark"] {
         color: rgba(255, 255, 255, 0.9);
     }
+
+    /* 针对段落增加间距 */
+    p {
+        margin-bottom: 1.5em;
+    }
 }
 
-/* 标题加粗加重 */
+/* 文章标题调大 */
 .article-title {
+    font-size: 2.2rem;      /* 强化标题视觉感 */
     font-weight: 700;
-    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+/* 侧边栏字体稍微加重 */
+.sidebar {
+    font-family: var(--base-font-family);
+    .subtitle {
+        font-size: 1.05rem;
+    }
 }
