@@ -9,8 +9,8 @@
     --base-font-family: 'Lora', 'Noto Serif SC', serif;
     --article-font-family: 'Lora', 'Noto Serif SC', serif;
 
-    /* 调大根字号，让全站文字更饱满 */
-    font-size: 17px; 
+    /* 恢复标准根字号 */
+    font-size: 16px; 
 
     &[data-scheme="dark"] {
         --body-background: #1f1f1e;
@@ -20,8 +20,8 @@
 
 /* 细节排版优化 */
 .article-content {
-    font-size: 1.25rem;     /* 显著调大字号，确保易读性 */
-    line-height: 1.9;       /* 稍微增加行间距以匹配大字号 */
+    font-size: 1.15rem;     /* 精准定位在中值，平衡密度与清晰度 */
+    line-height: 1.8;       /* 稍微收紧行高 */
     letter-spacing: 0.01em; 
     color: #2c2c2c;
 
@@ -31,21 +31,21 @@
 
     /* 针对段落增加间距 */
     p {
-        margin-bottom: 1.5em;
+        margin-bottom: 1.2em;
     }
 }
 
-/* 文章标题调大 */
+/* 文章标题适度缩小 */
 .article-title {
-    font-size: 2.2rem;      /* 强化标题视觉感 */
+    font-size: 1.8rem;      /* 恢复到稳重而不张扬的大小 */
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* 侧边栏字体稍微加重 */
+/* 侧边栏字体恢复 */
 .sidebar {
     font-family: var(--base-font-family);
     .subtitle {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 }
