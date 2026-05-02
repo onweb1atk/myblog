@@ -62,13 +62,31 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$VPS_HOST_KEY" >> ~/.ssh/known_hosts
 
+      - name: Verify SSH and VPS target
+        run: |
+          ssh \
+            -p "${VPS_SSH_PORT:-22}" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            "${VPS_USER}@${VPS_HOST}" \
+            "set -eu; whoami; command -v rsync; mkdir -p '${VPS_TARGET_DIR}'; ls -ld '${VPS_TARGET_DIR}'"
+
       - name: Sync files to VPS
         run: |
-          rsync -az --delete \
-            -e "ssh -p ${VPS_SSH_PORT:-22}" \
+          rsync -azvv --delete --timeout=30 \
+            -e "ssh -p ${VPS_SSH_PORT:-22} -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3" \
             ./public/ "${VPS_USER}@${VPS_HOST}:${VPS_TARGET_DIR}/"
 
       - name: Run post-deploy command
         if: ${{ env.POST_DEPLOY_CMD != '' }}
         run: |
-          ssh -p "${VPS_SSH_PORT:-22}" "${VPS_USER}@${VPS_HOST}" "$POST_DEPLOY_CMD"
+          ssh \
+            -p "${VPS_SSH_PORT:-22}" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            "${VPS_USER}@${VPS_HOST}" \
+            "$POST_DEPLOY_CMD"
