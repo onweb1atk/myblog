@@ -1,4 +1,6 @@
-baseURL = 'https://onweb1atk.github.io/myblog/'
+baseURL = 'https://1atk.space/'
+relativeURLs = false
+canonifyURLs = true
 title = "1atk's personal blog"
 theme = "hugo-theme-stack"
 languageCode = "zh-cn"
