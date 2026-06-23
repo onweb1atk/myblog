@@ -7,3 +7,8 @@
 # Local editor and OS files
 .DS_Store
 Thumbs.db
+
+# Local MTI temporary folders
+/input_photos/
+/qr_code.html
+
