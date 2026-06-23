@@ -67,7 +67,7 @@ jobs:
           ssh \
             -p "${VPS_SSH_PORT:-22}" \
             -o BatchMode=yes \
-            -o IdentitiesOnly=yes \
+            -o IdentitiesOnly=no \
             -o StrictHostKeyChecking=yes \
             -o ConnectTimeout=15 \
             "${VPS_USER}@${VPS_HOST}" \
@@ -76,7 +76,7 @@ jobs:
       - name: Sync files to VPS
         run: |
           rsync -azvv --delete --timeout=30 \
-            -e "ssh -p ${VPS_SSH_PORT:-22} -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3" \
+            -e "ssh -p ${VPS_SSH_PORT:-22} -o BatchMode=yes -o IdentitiesOnly=no -o StrictHostKeyChecking=yes -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3" \
             ./public/ "${VPS_USER}@${VPS_HOST}:${VPS_TARGET_DIR}/"
 
       - name: Run post-deploy command
@@ -85,7 +85,7 @@ jobs:
           ssh \
             -p "${VPS_SSH_PORT:-22}" \
             -o BatchMode=yes \
-            -o IdentitiesOnly=yes \
+            -o IdentitiesOnly=no \
             -o StrictHostKeyChecking=yes \
             -o ConnectTimeout=15 \
             "${VPS_USER}@${VPS_HOST}" \
